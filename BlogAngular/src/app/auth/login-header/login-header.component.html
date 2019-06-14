@@ -1,0 +1,31 @@
+<nav class="toolbar-background">
+  <div>
+    <span class="example-spacer"></span>
+    <label class="sign"  [routerLink]="['/auth/register']">Signup</label>
+    <label class="sign" [routerLink]="['/auth/login']">Login</label>
+  </div>
+  <div class="row">
+    <div class="women-div">
+      <img src="../../../assets/images/woman.png" />
+    </div>
+
+    <div class="women-div">
+      <img src="../../../assets/images/man.png" />
+    </div>
+  </div>
+</nav>
+<div class="row row-padding">
+  <div class="col-sm-4">
+    <mat-card class="card-class"></mat-card>
+  </div>
+
+  <div class="col-sm-4">
+    <mat-card class="card-class"></mat-card>
+  </div>
+
+  <div class="col-sm-4">
+    <mat-card class="card-class"></mat-card>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

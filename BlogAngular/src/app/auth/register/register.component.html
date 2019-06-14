@@ -1,0 +1,71 @@
+<nav>
+  <mat-toolbar class="toolbar-background"></mat-toolbar>
+</nav>
+
+<div class="row top-shift">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <mat-card style="width: 100%">
+      <mat-card-header>
+        <!-- <mat-card-title> Sign Up</mat-card-title> -->
+        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-card-content>
+        <div class="ui info message">
+          <div class="header">
+            Create your account
+          </div>
+        </div>
+        <form class="ui form" [formGroup]="registerForm">
+          <div class="field" [ngClass]="(f.fullName.errors?.required && submitted) ? 'error' :''">
+            <label>Full Name </label>
+            <input type="text" placeholder="Please enter your full name" [formControl]="registerForm.controls['fullName']" />
+          </div>
+          <div class="ui warning message"
+            [ngStyle]="(f.fullName.errors?.required && submitted) ?{'display': 'block'}:''">
+            <p>Please enter full name.</p>
+          </div>
+          <div class="field" [ngClass]="(f.email.errors?.required && submitted) ? 'error' :''">
+            <label>Email </label>
+            <input type="text" placeholder="name@example.com" [formControl]="registerForm.controls['email']" />
+          </div>
+          <div class="ui warning message" [ngStyle]="(f.email.errors?.required && submitted) ?{'display': 'block'}:''">
+            <p>Please enter email.</p>
+          </div>
+          <div class="ui warning message" [ngStyle]="(f.email.errors?.email && submitted) ?{'display': 'block'}:''">
+            <p>Enter valid Email address.</p>
+          </div>
+          <div class="field" [ngClass]="(f.password.errors?.required && submitted) ? 'error' :''">
+            <label>Password</label>
+            <input type="password" placeholder="Password" [formControl]="registerForm.controls['password']" />
+          </div>
+          <div class="ui warning message"
+            [ngStyle]="(f.password.errors?.required && submitted) ?{'display': 'block'}:''">
+            <p>Please enter password.</p>
+          </div>
+          <div class="ui warning message"
+            [ngStyle]="(f.password.errors?.minlength && submitted) ?{'display': 'block'}:''">
+            <p>Password must be 4 characers long.</p>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button class="sign-up" (click)=registerUser()>
+          Sign up
+        </button>
+      </mat-card-actions>
+      <div class="div-label-content">
+        <label class="create-acc" [routerLink]="['/auth/login']">Already have one</label>
+      </div>
+      <div class="ui success message" *ngIf="showSuccessMessage">
+        <div class="header">Registration Completed</div>
+        <p>You're all signed up for the newsletter.</p>
+      </div>
+      <div class="ui error message" *ngIf="serverErrorMessages">
+        <div class="header">Action Forbidden</div>
+        <p>{{serverErrorMessages}}</p>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-sm-4"></div>
+</div>

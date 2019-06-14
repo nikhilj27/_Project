@@ -1,0 +1,47 @@
+<nav>
+  <mat-toolbar class="toolbar-background"></mat-toolbar>
+</nav>
+
+<div class="row top-shift">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <mat-card style="width: 100%">
+      <mat-card-content>
+          <div class="ui info message">
+              <div class="header">
+                Welcome back
+              </div>
+            </div>
+        <form class="ui form" [formGroup]="loginForm">
+          <div class="field" [ngClass]="(f.email.errors?.required && submitted) ? 'error' :''">
+            <label>Email </label>
+            <input type="text" placeholder="name@example.com" [formControl]="loginForm.controls['email']" />
+          </div>
+          <div class="ui warning message" [ngStyle]="(f.email.errors?.required && submitted) ?{'display': 'block'}:''">
+              <p>Please enter email.</p>
+            </div>
+            <div class="ui warning message" [ngStyle]="(f.email.errors?.email && submitted) ?{'display': 'block'}:''">
+              <p>Enter valid Email address.</p>
+            </div>
+          <div class="field" [ngClass]="(f.password.errors?.required && submitted) ? 'error' :''">
+            <label>Password</label>
+            <input type="password" placeholder="Password" [formControl]="loginForm.controls['password']" />
+          </div>
+          <div class="ui warning message"
+          [ngStyle]="(f.password.errors?.required && submitted) ?{'display': 'block'}:''">
+          <p>Please enter password.</p>
+        </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button class="sign-in" (click)="submitForm()">
+          Login
+        </button>
+      </mat-card-actions>
+      <div class="div-label-content">
+        <label class="create-acc" [routerLink]="['/auth/register']">Create New <a>Account</a></label>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
