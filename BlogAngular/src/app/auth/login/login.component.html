@@ -7,7 +7,7 @@
   <div class="col-sm-4">
     <mat-card style="width: 100%">
       <mat-card-content>
-          <div class="ui info message">
+          <div class="ui blue message">
               <div class="header">
                 Welcome back
               </div>
@@ -31,6 +31,10 @@
           [ngStyle]="(f.password.errors?.required && submitted) ?{'display': 'block'}:''">
           <p>Please enter password.</p>
         </div>
+        <div class="ui warning message"
+            [ngStyle]="(f.password.errors?.minlength && submitted) ?{'display': 'block'}:''">
+            <p>Password must be 4 characers long.</p>
+          </div>
         </form>
       </mat-card-content>
       <mat-card-actions>
@@ -40,6 +44,14 @@
       </mat-card-actions>
       <div class="div-label-content">
         <label class="create-acc" [routerLink]="['/auth/register']">Create New <a>Account</a></label>
+      </div>
+      <div class="ui success message" *ngIf="showSuccessMessage">
+        <div class="header">Unlock Successfully</div>
+        <p>You're all signed up for the newsletter.</p>
+      </div>
+      <div class="ui error message" *ngIf="serverErrorMessages">
+        <div class="header">Action Forbidden</div>
+        <p>{{serverErrorMessages}}</p>
       </div>
     </mat-card>
   </div>

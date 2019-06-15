@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Register } from './register.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,9 @@ import { Observable } from 'rxjs';
 export class RegisterService {
   constructor(private httpClient: HttpClient) {}
 
+  noAuthHeaders = { headers: new HttpHeaders({ NoAuth: 'True' }) };
+
   postuser(user: Register): Observable<any> {
-    return this.httpClient.post(environment.apiBaseUrl + '/register', user);
+    return this.httpClient.post(environment.apiBaseUrl + '/register', user, this.noAuthHeaders);
   }
 }
