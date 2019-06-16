@@ -5,3 +5,28 @@
   .example-spacer {
     flex: 1 1 auto;
   }
+
+  .sign{
+    color: #fff;
+    padding: 15px;
+    font-size: 16px;
+    font-family: verdana;
+    font-weight: lighter;
+    float: right;
+    cursor: pointer;
+  }
+
+  .sign:hover{
+    text-decoration: underline;
+  }
+
+  .search{
+    width: 50%;
+    height: 61%;
+  }
+
+  .center {
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+  }
