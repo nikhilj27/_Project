@@ -1,16 +1,30 @@
 <nav>
   <mat-toolbar class="toolbar-background">
-    <div class="ui action input search">
+    <div class="header-labels" [routerLink]="['/dashboard/header/home']" routerLinkActive="active">STORIES</div>
+    <div class="header-labels">POPULAR TAGS</div>
+    <div class="header-labels">USERS</div>
+    <div class="ui icon input search focus">
       <input type="text" placeholder="Search by tags, title">
-      <button class="ui icon button">
-        <i class="search icon"></i>
-      </button>
     </div>
     <span class="example-spacer"></span>
+
+    <div class="ui dropdown">
+      <div> <button mat-stroked-button class="create">CREATE</button></div>
+      <div class="menu">
+        <div class="item" [routerLink]="['/dashboard/header/create/story']">
+          <div class="write-story"><i class="edit outline icon"></i>Write a Story</div>
+          <p>
+            Write an article on something you learned today or your experience with a technology
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
     <div class="ui dropdown">
       <div class=" sign">{{username}}<i class="dropdown icon"></i></div>
       <div class="menu">
-        <div class="item"><i class="edit outline icon"></i>New Story</div>
         <div class="item" (click)="onLoggedOut()"><i class="lock icon"></i>Logout</div>
       </div>
     </div>
@@ -20,3 +34,6 @@
   <div class="header">Action Forbidden</div>
   <p>{{serverErrorMessages}}</p>
 </div>
+
+
+<router-outlet></router-outlet>

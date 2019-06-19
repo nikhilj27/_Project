@@ -1,5 +1,6 @@
 .toolbar-background{
-    background-color: #039be5;
+    background-color: #fff;
+    border-bottom: 1px solid lightgray;
   }
 
   .example-spacer {
@@ -7,7 +8,7 @@
   }
 
   .sign{
-    color: #fff;
+    color: black;
     padding: 15px;
     font-size: 16px;
     font-family: verdana;
@@ -21,8 +22,9 @@
   }
 
   .search{
-    width: 50%;
+    width: 30%;
     height: 61%;
+    padding-left: 20px;
   }
 
   .center {
@@ -30,3 +32,33 @@
     width: 25%;
     padding: 10px;
   }
+
+  .header-labels{
+    padding: 14px;
+    font-size: 14px;
+    cursor: pointer;
+    color:black;
+    font-weight: normal;
+    outline: none;
+  }
+  
+div.header-labels:hover{
+  border-bottom: 2px solid blue;
+}
+
+.active{
+  border-bottom: 2px solid blue;
+
+}
+
+.create{
+  color: blue;
+  border-color: blue;
+  outline: none;
+}
+
+.write-story{
+  color: orangered;
+  font-size: 16px;
+  padding-bottom: 10px;
+}

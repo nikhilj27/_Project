@@ -27,8 +27,25 @@ export class LoginService {
     localStorage.setItem('token', token);
   }
 
+  getUserInfo(){
+    return (
+      localStorage.getItem('info'),
+      localStorage.getItem('fullName'),
+      localStorage.getItem('email')
+      )
+  }
+
+  setUserInfo(user){
+    localStorage.setItem('_id', user._id);
+    localStorage.setItem('fullName', user.fullName);
+    localStorage.setItem('email', user.email);
+  }
+
   deleteToken(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('_id');
+    localStorage.removeItem('fullName');
+    localStorage.removeItem('email');
   }
 
   getUserPayload() {

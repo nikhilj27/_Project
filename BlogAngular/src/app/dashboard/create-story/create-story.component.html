@@ -1,0 +1,73 @@
+<form [formGroup]="storyForm">
+  <div class="main-padding">
+    <div class="ui card story">
+      <div class="textarea-padding">
+        <div class="ui form title-padding">
+          <div class="field">
+            <textarea class="title" placeholder="Title" rows="1" style="border: none; font-size:x-large;font-weight: bold;height: auto;display:inline-block;min-height:10px;
+            " [formControl]="storyForm.controls['title']"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-setting">
+      </div>
+      <div class="textarea-padding">
+        <div class="ui form title-padding">
+          <div class="field">
+            <textarea class="title" placeholder="Tell your story" rows="10" style="border: none; font-size:20px;height: auto;display:inline-block;min-height:10px;
+                " [formControl]="storyForm.controls['description']"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui card tag-div">
+      <h3>Tag topics</h3>
+      <hr />
+      <div>
+          <mat-form-field class="example-chip-list">
+              <mat-chip-list #chipList>
+                <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                         [removable]="removable" (removed)="remove(tag)">
+                  {{tag}}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="Add tag..."
+                       [matChipInputFor]="chipList"
+                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                       [matChipInputAddOnBlur]="addOnBlur"
+                       (matChipInputTokenEnd)="add($event)">
+              </mat-chip-list>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="publish-div">
+      <div>
+        <label class="ready">Ready to publish?</label>
+      </div>
+      <div>
+        <button class="publish-btn" mat-flat-button (click)="newStory()">Publish</button>
+      </div>
+    </div>
+
+    <div class="ui success message" *ngIf="successMessage">
+      <div class="header">
+        Your story published successful.
+      </div>
+      <p>You may now view story in MY Story tab.</p>
+    </div>
+
+    <div class="ui error message" *ngIf="serverErrorMessages">
+      <i class="close icon"></i>
+      <div class="header">
+        There were some errors with your submission
+      </div>
+      <ul class="list">
+        <li>You must include both a upper and lower case letters in your password.</li>
+        <li>You need to select your home country.</li>
+      </ul>
+    </div>
+  </div>
+</form>

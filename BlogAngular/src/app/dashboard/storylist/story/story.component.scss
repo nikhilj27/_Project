@@ -1,0 +1,29 @@
+.card-width{
+width: 100%;
+}
+
+.card-padding{
+    padding-top: 20px;
+}
+
+.short-desc{
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    width: 100%; 
+    height: 1.2em; 
+    white-space: nowrap;
+    font-size: 17px;
+}
+
+.read-more{
+    font-size: 14px;
+    color: blue;
+    float: right;
+    text-align: right;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tag-padding{
+    padding: 10px;
+}

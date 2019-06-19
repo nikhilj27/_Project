@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.loginForm.value).subscribe(
         (response) => {
           this.loginService.setToken(response['token']);
+          this.loginService.setUserInfo(response['info']);
           this.showSuccessMessage = true;
           setTimeout(() => {
             this.showSuccessMessage = false;

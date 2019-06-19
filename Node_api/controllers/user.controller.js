@@ -26,7 +26,10 @@ module.exports.authenticate = (req, res, next) => {
 		if (err) {
 			return res.status(400).json(err);
 		} else if (user) {
-			return res.status(200).json({ token: user.generateJWT() });
+			return res.status(200).json({
+				token: user.generateJWT(),
+				info: _.pick(user, ['_id', 'fullName', 'email'])
+			});
 		} else {
 			return res.status(404).json(info);
 		}

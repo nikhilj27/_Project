@@ -6,14 +6,22 @@ import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../material/material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderInterceptor } from '../auth/guards/http.interceptor';
+import { StorylistComponent } from './storylist/storylist.component';
+import { StoryComponent } from './storylist/story/story.component';
+import { LeftFeedComponent } from './left-feed/left-feed.component';
+import { RightFeedComponent } from './right-feed/right-feed.component';
+import { CreateStoryComponent } from './create-story/create-story.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent],
+  declarations: [HomeComponent, HeaderComponent, StorylistComponent, StoryComponent, LeftFeedComponent, RightFeedComponent, CreateStoryComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers :[
     {
